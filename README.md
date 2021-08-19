@@ -26,3 +26,16 @@ Magnitudes that could be measured would be: air temperature, air speed (cooling 
 - Higher point is paramount to measure temperature, humidity, wind speed average modulus and connect with LoRaWAN plattform to send values and warnings.
 
 - Lower point/wind speed stream point: paramount to measure colder and with higher density/humidity. most challenged with select a low power device to measure IR stereo radiation 360º on approx. 32 fractions measurement on crop environment. On research.
+
+## Hardware decisions
+
+Hardware try: two comm shots developed in parallel, for two units LoRA capable the common part is Raspberry connected with Sx Standard transceiver, and with an alternative module, that connects sensor module swarm. Each sensor module can be equipped with temperature-humidity sensor, IR sensor, optionally atmosferic pressure sensor.
+
+First shot: alternative module based on nrF24L(~12mA on TX) module, whith Enhanced Shockburst Protocol (ESB) at 2.4Ghz ISM band, combined with MCU Atmel ATtiny44A, both on ultra-low Idle(32uA) and Powerdown(1.8uA) power state.
+
+Second Shot: alternative module based on ESP8266, with ESP-Now protocol at 2.4Ghz ISM band, ultra low power for sleep state.
+
+Sensors:
+- temperature-humidity: some standard as DHT, for example DHT11.
+- IR sensor: really a challenge for low power and reliability, also picked nearest available. Some of MIL chips as afc7103a17, commercial specialized version is MLX90614ESF, with i2c bus comms (-40ºC to +125ºC environment, -70ºC to 380ºC, tolerance MIL 0.2ºC, COMM 0.5ºC), C-Gradient compensated.
+- atmosferic sensor: BMP180
