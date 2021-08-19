@@ -38,4 +38,4 @@ Second Shot: alternative module based on ESP8266, with ESP-Now protocol at 2.4Gh
 Sensors:
 - temperature-humidity: some standard as DHT, for example DHT11.
 - IR sensor: really a challenge for low power and reliability, also picked nearest available. Some of MIL chips as afc7103a17, commercial specialized version is MLX90614ESF, with i2c bus comms (-40ºC to +125ºC environment, -70ºC to 380ºC, tolerance MIL 0.2ºC, COMM 0.5ºC), C-Gradient compensated.
-- atmosferic sensor: BMP180
+- optional atmosferic sensor: BMP180
